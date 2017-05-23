@@ -9,7 +9,6 @@ def read_email(fname):
     return text
 
 def strip(msg):
-    """Remove new lines."""
     return msg.strip().split('\n')
 
 def generate_text(msg, threshold, POS_parser, fname):

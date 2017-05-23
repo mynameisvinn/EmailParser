@@ -29,9 +29,12 @@ Wendy mentioned that you would be a great person to speak to since you are close
 ## getting started
 ```
 >>> from Parser import read_email, strip, prob_block
->>> from spacy.en import English  # could use nltk
->>> pos = English()
+>>> from spacy.en import English 
+
+>>> pos = English()  # part-of-speech tagger
 >>> msg_raw = read_email('emails/test1.txt')
->>> msg_stripped = strip(msg_raw)
->>> generate_text(msg_stripped, .9, pos_tagger, 'emails/test1_clean.txt')
+>>> msg_stripped = strip(msg_raw)  # preprocessing text before POS tagging
+
+# iterate through lines, write to file if not signature block
+>>> generate_text(msg_stripped, .9, pos_tagger, 'emails/test1_clean.txt')  
 ```
