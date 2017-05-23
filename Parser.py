@@ -27,7 +27,7 @@ def _prob_block(multiSentence, POS_parser):
 
 def generate_text(msg, threshold, POS_parser):
     for m in msg:
-    if _prob_block(m, POS_parser) < threshold:
-        print m
-    else:
-        pass
+        if _prob_block(m, POS_parser) < threshold:
+            print m
+        else:
+            pass

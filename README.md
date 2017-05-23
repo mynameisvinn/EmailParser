@@ -33,4 +33,5 @@ Wendy mentioned that you would be a great person to speak to since you are close
 >>> pos = English()
 >>> msg_raw = read_email('emails/test1.txt')
 >>> msg_stripped = strip(msg_raw)
+>>> generate_text(msg_stripped, .9, pos_tagger)
 ```
