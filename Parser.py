@@ -12,15 +12,22 @@ def strip(msg):
     """Remove new lines."""
     return msg.strip().split('\n')
 
-def prob_block(multiSentence, parser):
+def _prob_block(multiSentence, POS_parser):
     """Calculate probability of email block."""
     try:
         multiSentence = unicode(multiSentence)
-        parsedData = parser(multiSentence)
+        parsedData = POS_parser(multiSentence)
         for span in parsedData.sents:
             sent = [parsedData[i] for i in range(span.start, span.end)]
         non_verbs = np.sum([token.pos_ != 'VERB' for token in sent])
         total = len(sent)
         return float(non_verbs) / total
     except:
-        return 0 
+        return 0
+
+def generate_text(msg, threshold, POS_parser):
+    for m in msg:
+    if _prob_block(m, POS_parser) < threshold:
+        print m
+    else:
+        pass
