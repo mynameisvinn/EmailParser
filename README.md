@@ -1,5 +1,5 @@
 # emailparser
-while simple for humans, removing signature blocks is actually quite a challenging task for machines. by automatically identifying and removing signature blocks, emailparser should streamline large-scale email analysis.
+while simple for humans, identifying and removing signature blocks is actually quite a challenging task for machines. by automatically identifying and removing signature blocks, emailparser streamlines large-scale email analysis.
 
 ## example
 here is a sample email.
@@ -33,5 +33,5 @@ Wendy mentioned that you would be a great person to speak to since you are close
 >>> pos = English()
 >>> msg_raw = read_email('emails/test1.txt')
 >>> msg_stripped = strip(msg_raw)
->>> generate_text(msg_stripped, .9, pos_tagger)
+>>> generate_text(msg_stripped, .9, pos_tagger, 'emails/test1_clean.txt')
 ```
