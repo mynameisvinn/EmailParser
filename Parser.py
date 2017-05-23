@@ -4,10 +4,9 @@ import codecs
 
 def read_email(fname):
     """Read email as unicode."""
-    f = codecs.open(fname, encoding='utf-8')
-    text = f.read()
-    msg = text.encode('utf-8')
-    return msg
+    with codecs.open(fname, encoding='utf-8') as f:
+        text = f.read()
+    return text
 
 def strip(msg):
     """Remove new lines."""
