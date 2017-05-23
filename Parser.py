@@ -1,6 +1,6 @@
-from spacy.en import English
-import numpy as np
 import codecs
+import numpy as np
+from spacy.en import English
 
 def read_email(fname):
     """Read email as unicode."""
@@ -11,6 +11,24 @@ def read_email(fname):
 def strip(msg):
     """Remove new lines."""
     return msg.strip().split('\n')
+
+def generate_text(msg, threshold, POS_parser):
+    """For each line, determine if line is signature block.
+
+    Parameters
+    ----------
+    msg : str
+        Represents line in email block.
+    threshold: float
+        Lower thresholds will result in more false positives.
+    POS_parser: obj
+        Spacy English object used to tag parts-of-speech.
+    """
+    for m in msg:
+        if _prob_block(m, POS_parser) < threshold:
+            print m
+        else:
+            pass
 
 def _prob_block(multiSentence, POS_parser):
     """Calculate probability of email block."""
@@ -24,10 +42,3 @@ def _prob_block(multiSentence, POS_parser):
         return float(non_verbs) / total
     except:
         return 0
-
-def generate_text(msg, threshold, POS_parser):
-    for m in msg:
-        if _prob_block(m, POS_parser) < threshold:
-            print m
-        else:
-            pass

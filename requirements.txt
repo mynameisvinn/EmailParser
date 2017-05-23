@@ -1,2 +1,2 @@
-spacy
 numpy
+spacy
