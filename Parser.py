@@ -23,4 +23,4 @@ def prob_block(multiSentence, parser):
         total = len(sent)
         return float(non_verbs) / total
     except:
-        return 0
+        return 0 
