@@ -28,7 +28,7 @@ Wendy mentioned that you would be a great person to speak to since you are close
 ```
 
 ## getting started
-```
+```python
 >>> from Parser import read_email, corpus2sentences, generate_text
 >>> from spacy.en import English 
 
