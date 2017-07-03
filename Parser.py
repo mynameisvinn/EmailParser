@@ -8,10 +8,12 @@ def read_email(fname):
         text = email.read().encode('utf-8')
     return text
 
-def strip(msg):
-    return msg.strip().split('\n')
+def corpus2sentences(corpus):
+    """split corpus into a list of sentences.
+    """
+    return corpus.strip().split('\n')
 
-def generate_text(sentences, threshold, pos_parser, fname):
+def generate_text(sentences, pos_parser, fname, threshold=0.9):
     """
     For each line, determine if line is signature block.
 
@@ -22,17 +24,18 @@ def generate_text(sentences, threshold, pos_parser, fname):
     ----------
     sentence : str
         Represents line in email block.
-    threshold: float
-        Lower thresholds will result in more false positives.
     POS_parser: obj
         Spacy English object used to tag parts-of-speech. Will explore using
         other POS taggers like NLTK's.
+    fname : str
+        Represents fname of new corpus, excluding signature block.
+    threshold: float
+        Lower thresholds will result in more false positives.
     """
     with open(fname, "w") as new_file:
         for sentence in sentences:
             if _prob_block(sentence, pos_parser) < threshold:
                 new_file.write(unicode(sentence, 'utf8'))
-    return True
 
 def _prob_block(sentence, pos_parser):
     """Calculate probability of email block.

@@ -29,13 +29,13 @@ Wendy mentioned that you would be a great person to speak to since you are close
 
 ## getting started
 ```
->>> from Parser import read_email, strip, generate_text
+>>> from Parser import read_email, corpus2sentences, generate_text
 >>> from spacy.en import English 
 
 >>> pos_tagger = English()  # part-of-speech tagger
 >>> msg_raw = read_email('emails/test1.txt')
->>> msg_stripped = strip(msg_raw)  # preprocessing text before POS tagging
+>>> sentences = corpus2sentences(msg_raw)  # convert corpus into sentences
 
 # iterate through lines, write to file if not signature block
->>> generate_text(msg_stripped, .9, pos_tagger, 'emails/test1_clean.txt')  
+>>> generate_text(sentences, pos, 'emails/test1_clean.txt', threshold=.9)
 ```
