@@ -29,7 +29,7 @@ Wendy mentioned that you would be a great person to speak to since you are close
 
 ## getting started
 ```
->>> from Parser import read_email, strip, prob_block
+>>> from Parser import read_email, strip
 >>> from spacy.en import English 
 
 >>> pos = English()  # part-of-speech tagger
