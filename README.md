@@ -29,10 +29,10 @@ Wendy mentioned that you would be a great person to speak to since you are close
 
 ## getting started
 ```
->>> from Parser import read_email, strip
+>>> from Parser import read_email, strip, generate_text
 >>> from spacy.en import English 
 
->>> pos = English()  # part-of-speech tagger
+>>> pos_tagger = English()  # part-of-speech tagger
 >>> msg_raw = read_email('emails/test1.txt')
 >>> msg_stripped = strip(msg_raw)  # preprocessing text before POS tagging
 
