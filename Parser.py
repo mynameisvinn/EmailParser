@@ -54,10 +54,13 @@ def _prob_block(sentence, pos_parser):
     try:
         sentence = unicode(sentence)
         parsed_data = pos_parser(sentence)
+        total = 0
+        non_verbs = 0
         for span in parsed_data.sents:
             sent = [parsed_data[i] for i in range(span.start, span.end)]
-        non_verbs = np.sum([token.pos_ != 'VERB' for token in sent])
-        total = len(sent)
+            non_verbs += np.sum([token.pos_ != 'VERB' for token in sent])
+            total += len(sent)
+
         return float(non_verbs) / total
     except:
         return 0
