@@ -1,6 +1,5 @@
 import codecs
 import numpy as np
-from spacy.en import English
 
 def read_email(fname):
     """Read email as unicode."""
