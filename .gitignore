@@ -2,3 +2,5 @@ emails/test1_clean.txt
 *.pyc
 .ipynb_checkpoints
 Untitled.ipynb
+.DS_Store
+emails/.DS_Store
